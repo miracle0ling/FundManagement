@@ -1,0 +1,5 @@
+mapper\UserMapper.class
+mapper\BillMapper.class
+mapper\StudioMapper.class
+mapper\ProjectMapper.class
+mapper\LibraryMapper.class

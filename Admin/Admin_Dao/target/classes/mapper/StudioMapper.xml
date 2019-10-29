@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.StudioMapper">
+    <select id="selectstudio" parameterType="list" resultType="pojo.Studio">
+    	select * from studio
+    </select>
+
+    <select id="studioindex" parameterType="string" resultType="pojo.Studio">
+    	select * from studio where sid=#{sid}
+    </select>
+
+    <update id="updateused" parameterType="pojo.Studio">
+        update studio
+        set used=#{param1}
+        where sid=#{param2}
+    </update>
+
+    <update id="updateusable" parameterType="pojo.Studio">
+        update studio
+        set usable=#{param1}
+        where sid=#{param2}
+    </update>
+ </mapper>
+  

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.ProjectMapper">
+    <select id="selectproject" parameterType="list" resultType="pojo.Project">
+    	select * from project
+    </select>
+
+    <select id="projectindex" parameterType="string" resultType="pojo.Project">
+    	select * from project where proid=#{proid}
+    </select>
+    
+    <update id="updateused" parameterType="pojo.Project">
+        update project
+        set used=#{param1}
+        where proid=#{param2}
+    </update>
+
+    <update id="updateusable" parameterType="pojo.Project">
+        update project
+        set usable=#{param1}
+        where proid=#{param2}
+    </update>
+ </mapper>
+  

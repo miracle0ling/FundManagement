@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.BillMapper">
+    <select id="selectbill" parameterType="list" resultType="pojo.Bill">
+    	select * from bill
+    </select>
+
+    <select id="billindex" parameterType="list" resultType="pojo.Bill">
+    	select * from bill where pid=#{pid}
+    </select>
+
+    <select id="billindex1" parameterType="string" resultType="pojo.Bill">
+    	select * from bill where id=#{id}
+    </select>
+
+    <select id="billindex2" parameterType="string" resultType="pojo.Bill">
+    	select * from bill where rid=#{rid}
+    </select>
+
+    <update id="tongyiapplication" parameterType="string">
+        update bill
+        set status=#{0}
+        where id=#{1}
+    </update>
+
+    <delete id="jujueapplication" parameterType="string">
+        delete from bill where id=#{id}
+    </delete>
+
+    <update id="updateapplication" parameterType="string">
+        update bill
+        set leibie=#{0},type=#{1},amoney=#{2},people=#{3},tel=#{4}
+        where id=#{5}
+    </update>
+ </mapper>
+  
