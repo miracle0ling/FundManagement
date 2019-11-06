@@ -6,10 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pojo.*;
-import service.ApplyService;
-import service.LibraryService;
-import service.ProjectService;
-import service.StudioService;
+import service.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -26,11 +23,17 @@ public class InfoController {
     ProjectService projectService;
     @Autowired
     LibraryService libraryService;
+    @Autowired
+    TravelService travelService;
+    @Autowired
+    PeopleService peopleService;
 
     @RequestMapping("/personInfo")
     public String personInfo(Model model,HttpSession session){
         List<Bill> bills = applyService.sbyname(String.valueOf(session.getAttribute("perid")));
+        List<Travel> travels = travelService.sbyname(String.valueOf(session.getAttribute("perid")));
         model.addAttribute("bills",bills);
+        model.addAttribute("travels",travels);
         return "personInfo";
     }
 
@@ -47,6 +50,19 @@ public class InfoController {
         return "selectlibrary";
     }
 
+    @RequestMapping("/selectpeople")
+    public String selectpeople(String id,Model model){
+        List<People> peopleList = peopleService.selectbyrid(id);
+        float count  = 0;
+        for (People i :
+                peopleList) {
+            count+=i.getPrice();
+        }
+        model.addAttribute("peopleList",peopleList);
+        model.addAttribute("count",count);
+        return "selectpeople";
+    }
+
 
     @RequestMapping("/studioInfo")
     public String studio(HttpServletRequest request, HttpSession session, ModelMap model) {
@@ -56,6 +72,8 @@ public class InfoController {
             try{
                 Studio studio = studioService.showinfo(teacher.getTid());
                 List<Bill> bills = applyService.sbyid(studio.getSid());
+                List<Travel> travels = travelService.sbyname(String.valueOf(session.getAttribute("perid")));
+                model.addAttribute("travels",travels);
                 model.addAttribute("bills",bills);
                 model.addAttribute("studio",studio);
                 model.addAttribute("ifpri",1);
@@ -80,6 +98,8 @@ public class InfoController {
             if (student.getIfpri() == 1) {
                 project project = projectService.PgetIfno(student.getSnum());
                 List<Bill> bills = applyService.sbyid(project.getProid());
+                List<Travel> travels = travelService.sbyname(String.valueOf(session.getAttribute("perid")));
+                model.addAttribute("travels",travels);
                 model.addAttribute("bills",bills);
                 model.addAttribute("project", project);
                 model.addAttribute("ifpri",1);

@@ -322,6 +322,45 @@
                                     </tr>
                                 </c:if>
                             </c:forEach>
+                            <c:forEach items="${travels}" var="travel">
+
+                                <tr>
+                                    <td>${travel.time}</td>
+                                    <td>${travel.mission}</td>
+                                    <td>${travel.people}</td>
+                                    <td>${travel.tmoney}</td>
+                                    <td>${travel.method}</td>
+                                    <td>
+                                        <c:if test="${travel.status == 0}">
+                                            <span class="label label-sm label-warning">申请中</span>
+                                        </c:if>
+                                        <c:if test="${travel.status == 1}">
+                                            <span class="label label-sm label-success arrowed">同意</span>
+                                        </c:if>
+                                        <c:if test="${travel.status == 2}">
+                                                    <span
+                                                            class="label label-sm label-inverse arrowed-in-right">拒绝</span>
+                                        </c:if>
+                                        <c:if test="${travel.status== 3}">
+                                            <span class="label label-sm label-danger arrowed-in">撤销</span>
+                                        </c:if>
+                                        <c:if test="${travel.status == 4}">
+                                            <span class="label label-sm label-info arrowed-in-right">已使用</span>
+                                        </c:if>
+                                    </td>
+                                    <td>
+
+                                        <a type="button"
+                                           class="btn btn-minier btn-white btn-warning btn-bold"
+                                           href="./selectpeople?id=${travel.tid}">
+                                            <i class="ace-icon fa fa-trash-o bigger-100 orange"></i>
+                                            查看具體人員信息
+                                        </a>
+
+                                    </td>
+                                </tr>
+
+                            </c:forEach>
                         </form>
                         </tbody>
 

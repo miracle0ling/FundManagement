@@ -5,7 +5,7 @@
         select * from people
     </select>
     <insert id="insert" parameterType="People">
-        insert into people
+        insert into people (tid,pname,transport,price)
         values
         (#{tid},#{pname},#{transport},#{price})
     </insert>

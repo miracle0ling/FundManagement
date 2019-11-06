@@ -15,13 +15,6 @@ public class People {
         this.id = id;
     }
 
-    public People(String tid, String pname, String transport, float price) {
-        this.tid = tid;
-        this.pname = pname;
-        this.transport = transport;
-        this.price = price;
-    }
-
     public String getTid() {
         return tid;
     }

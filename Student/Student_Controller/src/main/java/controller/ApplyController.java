@@ -330,7 +330,11 @@ public class ApplyController {
 
             for (int i = 0; i < pname.length; i++) {
                 float money = Float.parseFloat(smoney[i]);
-                People people = new People(rid, pname[i], transport[i], money);
+                People people = new People();
+                people.setPname(pname[i]);
+                people.setPrice(money);
+                people.setTid(rid);
+                people.setTransport(transport[i]);
                 peopleList.add(people);
             }
 
@@ -345,11 +349,12 @@ public class ApplyController {
         Date date = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         travel.setTime(dateFormat.format(date).toString());
-        travelService.insert(travel);
         for (People i :
                 peopleList) {
             peopleService.insert(i);
         }
+        travelService.insert(travel);
+
         model.addAttribute("errormassage", "提交成功");
         return "redirect:/travelapply";
     }
