@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.TravelMapper">
+    <insert id="insert" parameterType="Travel">
+        insert into travel (tid,leibie,pid,startdate,enddate,mission,place,hmoney,mmoney,tmoney,people,tel,personid,status,time)
+        values
+        (#{tid},#{leibie},#{pid},#{startdate},#{enddate},#{mission},#{place},#{hmoney},#{mmoney},#{tmoney},#{people},#{tel},#{personid},#{status},#{time})
+    </insert>
+    <select id="sbyid" parameterType="String" resultType="Travel">
+        select * from travel where pid = #{pid}
+    </select>
+    <delete id="repeal" parameterType="int">
+        delete from travel where tid =#{tid}
+    </delete>
+    <select id="selectnum" parameterType="String" resultType="int">
+        select count(*) from travel where pid=#{pid}
+    </select>
+    <select id="sbyname" parameterType="String" resultType="Travel">
+        select * from travel where personid=#{personid} and status=0
+    </select>
+</mapper>

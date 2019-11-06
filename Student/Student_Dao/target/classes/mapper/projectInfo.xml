@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.projectInfo">
+    <select id="getPro" parameterType="string" resultType="String">
+    	select proid from project where s1=#{stunumber} or s2=#{stunumber} or s3=#{stunumber} or s4=#{stunumber} or s5=#{stunumber}
+    </select>
+    <select id="pgetPro" parameterType="string" resultType="String">
+    	select proid from project where stunumber=#{stunumber}
+    </select>
+    <select id="getInfo" parameterType="String" resultType="project">
+        select * from project where stunumber=#{stunumber}
+    </select>
+    <select id="getNI" resultType="project">
+        select * from project
+    </select>
+</mapper>
