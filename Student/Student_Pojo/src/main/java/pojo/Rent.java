@@ -15,6 +15,15 @@ public class Rent {
     private String personid;
     private String time;
     private int status;
+    private String method;
+
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
+    }
 
     public String getTime() {
         return time;

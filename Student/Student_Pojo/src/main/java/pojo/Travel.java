@@ -16,7 +16,15 @@ public class Travel {
     private float mmoney;
     private float tmoney;
     private int status;
+    private String method;
 
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
+    }
 
     public String getTime() {
         return time;

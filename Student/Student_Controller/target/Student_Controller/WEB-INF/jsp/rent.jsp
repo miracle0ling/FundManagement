@@ -297,7 +297,7 @@
                                     >项目名称</label>
                                     <div class="col-sm-9">
                                         <div class="clearfix">
-                                            <select id="project name" name="pid"  onchange="SelectChange1()">
+                                            <select id="project name" name="pid" onchange="SelectChange1()">
                                                 <option value="">请选择</option>
                                                 <c:forEach items="${project}" var="p">
                                                     <option value="${p.proid}">${p.proid}-${p.proname}</option>
@@ -313,7 +313,7 @@
                                     >工作室名称</label>
                                     <div class="col-sm-9">
                                         <div class="clearfix">
-                                            <select id="studio name" name="sid"  onchange="SelectChange1()">
+                                            <select id="studio name" name="sid" onchange="SelectChange1()">
                                                 <option value="">请选择</option>
                                                 <c:forEach items="${studio}" var="s">
                                                     <option value="${s.sid}">${s.sid}-${s.sname}</option>
@@ -332,7 +332,7 @@
                                         <div class="clearfix">
                                             <input class="col-xs-1" type="text" name="people" id="person"
                                                    placeholder="" value="${pername}" required readonly
-                                                   style="width: auto;" />
+                                                   style="width: auto;"/>
                                         </div>
 
                                         <div class="space-2"></div>
@@ -362,8 +362,26 @@
                                         <div class="clearfix">
                                             <select id="type" name="type" required>
                                                 <option value="">请选择</option>
-                                                <option value="办公费">办公费</option>
-
+                                                <option value="住宿费">住宿费</option>
+                                                <option value="出差旅费">出差旅费</option>
+                                                <option value="会议费">会议费</option>
+                                                <option value="其他培训支出"> 其他培训支出</option>
+                                                <option value="专用工具和仪器"> 专用工具和仪</option>
+                                                <option value="实验室用品"> 实验室用品</option>
+                                                <option value="消耗性体育用品"> 消耗性体育用</option>
+                                                <option value="保卫消防材料"> 保卫消防材料</option>
+                                                <option value="宣传性材料"> 宣传性材料</option>
+                                                <option value="专用服装">专用服装</option>
+                                                <option value="劳保用品">劳保用品</option>
+                                                <option value="其他专用材料"> 其他专用材料</option>
+                                                <option value="一般印刷费"> 一般印刷费</option>
+                                                <option value="著作印刷费"> 著作印刷费</option>
+                                                <option value="版面费">版面费</option>
+                                                <option value="专利费">专利费</option>
+                                                <option value="资料费">资料费</option>
+                                                <option value="其他">其他</option>
+                                                <option value="测试化验加工费"> 测试化验加工費</option>
+                                                <option value="专用设备购置"> 专用设备购置</option>
                                             </select>
                                         </div>
                                     </div>
@@ -374,7 +392,7 @@
 
                                     <div class="col-sm-9">
                                         <input class="col-xs-1" type="text" id="" placeholder="" name="money" required
-                                               value="" />
+                                               value=""/>
                                     </div>
                                 </div>
 
@@ -383,21 +401,15 @@
 
                                     <div class="col-sm-9">
                                         <input class="col-xs-1" type="text" id="" placeholder="" name="dw" required
-                                               value="" />
+                                               value=""/>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right">对方银行</label>
                                     <div class="col-sm-9">
-                                        <div class="clearfix">
-                                            <select id="bank" name="bank" required>
-                                                <option value="">请选择</option>
-                                                <option value="">工行</option>
-                                                <option value="">农行</option>
-                                                <option value="">建行</option>
-                                            </select>
-                                        </div>
+                                        <input class="col-xs-1" type="text" id="" placeholder="" name="bank" required
+                                               value=""/>
                                     </div>
                                 </div>
 
@@ -406,7 +418,7 @@
 
                                     <div class="col-sm-9">
                                         <input class="col-xs-1" type="text" id="" placeholder="" name="account" required
-                                               value="" />
+                                               value=""/>
                                     </div>
                                 </div>
 
@@ -414,8 +426,9 @@
                                     <label class="col-sm-3 control-label no-padding-right">对方省</label>
 
                                     <div class="col-sm-9">
-                                        <input class="col-xs-1" type="text" id="" placeholder="" name="province" required
-                                               value="" />
+                                        <input class="col-xs-1" type="text" id="" placeholder="" name="province"
+                                               required
+                                               value=""/>
                                     </div>
                                 </div>
 
@@ -424,7 +437,19 @@
 
                                     <div class="col-sm-9">
                                         <input class="col-xs-1" type="text" id="" placeholder="" name="city" required
-                                               value="" />
+                                               value=""/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right"
+                                    >报销方式</label>
+                                    <div class="col-sm-9">
+                                        <div class="clearfix">
+                                            <select id="method" name="method" required>
+                                                <option value="电汇">电汇</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <!--右-->
@@ -772,22 +797,22 @@
             var hide1 = document.getElementById("hide1");
             var hide2 = document.getElementById("hide2");
             var hide3 = document.getElementById("hide3");
-            if (applytype.value=="project"){
-                hide1.style=""
-                hide2.style="display:none"
-                hide3.style="display:none"
-            }else if (applytype.value=="studio"){
-                hide1.style="display:none"
-                hide2.style=""
-                hide3.style="display:none"
-            }else if (applytype.value=="competition"){
-                hide1.style="display:none"
-                hide2.style="display:none"
-                hide3.style=""
-            }else {
-                hide1.style="display:none"
-                hide2.style="display:none"
-                hide3.style="display:none"
+            if (applytype.value == "project") {
+                hide1.style = ""
+                hide2.style = "display:none"
+                hide3.style = "display:none"
+            } else if (applytype.value == "studio") {
+                hide1.style = "display:none"
+                hide2.style = ""
+                hide3.style = "display:none"
+            } else if (applytype.value == "competition") {
+                hide1.style = "display:none"
+                hide2.style = "display:none"
+                hide3.style = ""
+            } else {
+                hide1.style = "display:none"
+                hide2.style = "display:none"
+                hide3.style = "display:none"
             }
         }
 

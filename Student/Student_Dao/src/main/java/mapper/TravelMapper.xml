@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="mapper.TravelMapper">
     <insert id="insert" parameterType="Travel">
-        insert into travel (tid,leibie,pid,startdate,enddate,mission,place,hmoney,mmoney,tmoney,people,tel,personid,status,time)
+        insert into travel (tid,leibie,pid,startdate,enddate,mission,place,hmoney,mmoney,tmoney,people,tel,personid,status,time,method)
         values
-        (#{tid},#{leibie},#{pid},#{startdate},#{enddate},#{mission},#{place},#{hmoney},#{mmoney},#{tmoney},#{people},#{tel},#{personid},#{status},#{time})
+        (#{tid},#{leibie},#{pid},#{startdate},#{enddate},#{mission},#{place},#{hmoney},#{mmoney},#{tmoney},#{people},#{tel},#{personid},#{status},#{time},#{method})
     </insert>
     <select id="sbyid" parameterType="String" resultType="Travel">
         select * from travel where pid = #{pid}

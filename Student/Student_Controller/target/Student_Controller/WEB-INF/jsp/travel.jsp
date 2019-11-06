@@ -423,6 +423,21 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right"
+                                    >报销方式</label>
+                                    <div class="col-sm-9">
+                                        <div class="clearfix">
+                                            <select id="method" name="method" required>
+                                                <option value="">请选择</option>
+                                                <option value="公务卡">公务卡</option>
+                                                <option value="电汇">电汇</option>
+                                                <option value="现金">现金</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <!--右-->
 
                                 <button class="btn btn-info" type="button" onclick="add()"

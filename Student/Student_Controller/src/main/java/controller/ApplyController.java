@@ -273,6 +273,7 @@ public class ApplyController {
         String hhmoney = request.getParameter("hmoney");
         String mmmoney = request.getParameter("mmoney");
         String ttmoney = request.getParameter("tmoney");
+        String method = request.getParameter("method");
 
         String[] pname = request.getParameterValues("pname");
         String[] smoney = request.getParameterValues("money");
@@ -290,6 +291,7 @@ public class ApplyController {
         travel.setTel(tel);
         travel.setPersonid((String) session.getAttribute("perid"));
         travel.setStatus(status);
+        travel.setMethod(method);
 
 
         if (!pid.equals("") || !sid.equals("")) {
@@ -369,6 +371,7 @@ public class ApplyController {
         String account = request.getParameter("account");
         String province = request.getParameter("province");
         String city = request.getParameter("city");
+        String method = request.getParameter("method");
         try{
             float money = Float.parseFloat(request.getParameter("money"));
         }catch (NumberFormatException e){
@@ -414,6 +417,7 @@ public class ApplyController {
         rent.setTel(tel);
         rent.setStatus(status);
         rent.setAccount(account);
+        rent.setMethod(method);
 
 //        插入
         Date date = new Date();
