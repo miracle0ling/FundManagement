@@ -356,32 +356,28 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group" id="dw">
+                                    <label class="col-sm-3 control-label no-padding-right">借款事由</label>
+
+                                    <div class="col-sm-9">
+                                        <textarea rows="5" class="col-xs-3" type="text" id="" placeholder="" name="mission" required
+                                                  value=""></textarea>
+                                    </div>
+                                </div>
+
+
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right">报销类别</label>
+                                    <label class="col-sm-3 control-label no-padding-right">借款用途</label>
                                     <div class="col-sm-9">
                                         <div class="clearfix">
                                             <select id="type" name="type" required>
                                                 <option value="">请选择</option>
-                                                <option value="住宿费">住宿费</option>
-                                                <option value="出差旅费">出差旅费</option>
-                                                <option value="会议费">会议费</option>
-                                                <option value="其他培训支出"> 其他培训支出</option>
-                                                <option value="专用工具和仪器"> 专用工具和仪</option>
-                                                <option value="实验室用品"> 实验室用品</option>
-                                                <option value="消耗性体育用品"> 消耗性体育用</option>
-                                                <option value="保卫消防材料"> 保卫消防材料</option>
-                                                <option value="宣传性材料"> 宣传性材料</option>
-                                                <option value="专用服装">专用服装</option>
-                                                <option value="劳保用品">劳保用品</option>
-                                                <option value="其他专用材料"> 其他专用材料</option>
-                                                <option value="一般印刷费"> 一般印刷费</option>
-                                                <option value="著作印刷费"> 著作印刷费</option>
-                                                <option value="版面费">版面费</option>
-                                                <option value="专利费">专利费</option>
-                                                <option value="资料费">资料费</option>
-                                                <option value="其他">其他</option>
-                                                <option value="测试化验加工费"> 测试化验加工費</option>
-                                                <option value="专用设备购置"> 专用设备购置</option>
+                                                <c:forEach items="${typeList}" var="l">
+                                                    ${l.ttype}
+                                                    <c:if test="${l.ttype=='借款报销'}">
+                                                        <option value="${l.project}">${l.project}</option>
+                                                    </c:if>
+                                                </c:forEach>
                                             </select>
                                         </div>
                                     </div>
@@ -400,7 +396,7 @@
                                     <label class="col-sm-3 control-label no-padding-right">单位名称</label>
 
                                     <div class="col-sm-9">
-                                        <input class="col-xs-1" type="text" id="" placeholder="" name="dw" required
+                                        <input class="col-xs-3" type="text" id="" placeholder="" name="dw" required
                                                value=""/>
                                     </div>
                                 </div>
@@ -408,7 +404,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right">对方银行</label>
                                     <div class="col-sm-9">
-                                        <input class="col-xs-1" type="text" id="" placeholder="" name="bank" required
+                                        <input class="col-xs-3" type="text" id="" placeholder="" name="bank" required
                                                value=""/>
                                     </div>
                                 </div>
@@ -417,7 +413,7 @@
                                     <label class="col-sm-3 control-label no-padding-right">对方账号</label>
 
                                     <div class="col-sm-9">
-                                        <input class="col-xs-1" type="text" id="" placeholder="" name="account" required
+                                        <input class="col-xs-3" type="text" id="" placeholder="" name="account" required
                                                value=""/>
                                     </div>
                                 </div>
@@ -426,7 +422,7 @@
                                     <label class="col-sm-3 control-label no-padding-right">对方省</label>
 
                                     <div class="col-sm-9">
-                                        <input class="col-xs-1" type="text" id="" placeholder="" name="province"
+                                        <input class="col-xs-3" type="text" id="" placeholder="" name="province"
                                                required
                                                value=""/>
                                     </div>
@@ -436,7 +432,7 @@
                                     <label class="col-sm-3 control-label no-padding-right">对方市</label>
 
                                     <div class="col-sm-9">
-                                        <input class="col-xs-1" type="text" id="" placeholder="" name="city" required
+                                        <input class="col-xs-3" type="text" id="" placeholder="" name="city" required
                                                value=""/>
                                     </div>
                                 </div>

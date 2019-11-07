@@ -376,8 +376,8 @@
 
                                     <div class="col-sm-9">
                                         <div class="clearfix">
-                                            <input class="col-xs-1" type="text" name="mission" id="mission" placeholder=""
-                                                   value="" required />
+                                            <textarea rows="5"  class="col-xs-3" type="text" name="mission" id="mission" placeholder=""
+                                                      value="" required ></textarea>
                                         </div>
 
                                         <div class="space-2"></div>
@@ -390,9 +390,18 @@
 
                                     <div class="col-sm-9">
                                         <div class="inline">
-                                            <input type="text" name="place" id="place" value="" placeholder="" title="" />
+                                            <input type="text" name="place" id="place" value="" placeholder="" title="" required/>
                                         </div>
                                         <div class="space-2"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="">
+                                    <label class="col-sm-3 control-label no-padding-right">交通费</label>
+
+                                    <div class="col-sm-9">
+                                        <input class="col-xs-1" type="text" id="tmoney" placeholder="" name="tmoney"
+                                               value="0" onblur="countmoney()"/>
                                     </div>
                                 </div>
 
@@ -401,7 +410,7 @@
 
                                     <div class="col-sm-9">
                                         <input class="col-xs-1" type="text" id="hmoney" placeholder="" name="hmoney"
-                                               value="" />
+                                               value="0" onblur="countmoney()"/>
                                     </div>
                                 </div>
 
@@ -410,16 +419,76 @@
 
                                     <div class="col-sm-9">
                                         <input class="col-xs-1" type="text" id="mmoney" placeholder="" name="mmoney"
-                                               value="" />
+                                               value="0" onblur="countmoney()"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">交通补助费（80元/人/天）</label>
+
+                                    <div class="col-sm-9">
+                                        <input class="col-xs-1" type="number" id="tbmoney" placeholder="填写天数" name="tbmoney"
+                                               value="0" onblur="countmoney()"/>
+                                        <label class="control-label">天</label>
+                                        <input class="" type="number" name="tbp" id="tbp" placeholder="填写人数" value="0" onblur="countmoney()"
+                                                 /><label class="control-label">人</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">伙食补助（100元/人/天）</label>
+
+                                    <div class="col-sm-9">
+                                        <input class="col-xs-1" type="number" id="fbmoney" placeholder="填写天数" name="fbmoney"
+                                               value="0" onblur="countmoney()"/>
+                                        <label class="control-label">天</label>
+                                        <input class="" type="number" name="fbp" id="fbp" placeholder="填写人数" value="0" onblur="countmoney()"
+                                                />
+                                        <label class="control-label">人</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group" id="">
-                                    <label class="col-sm-3 control-label no-padding-right">总额</label>
+                                    <label class="col-sm-3 control-label no-padding-right">培训费</label>
 
                                     <div class="col-sm-9">
-                                        <input class="col-xs-1" type="text" id="tmoney" placeholder="" name="tmoney" required
-                                               value="" />
+                                        <input class="col-xs-1" type="text" id="cmoney" placeholder="" name="cmoney"
+                                               value="0" onblur="countmoney()"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="">
+                                    <label class="col-sm-3 control-label no-padding-right">保险费</label>
+
+                                    <div class="col-sm-9">
+                                        <input class="col-xs-1" type="text" id="pmoney" placeholder="" name="pmoney"
+                                               value="0" onblur="countmoney()"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="">
+                                    <label class="col-sm-3 control-label no-padding-right">退票费</label>
+
+                                    <div class="col-sm-9">
+                                        <input class="col-xs-1" type="text" id="rmoney" placeholder="" name="rmoney"
+                                               value="0" onblur="countmoney()"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="">
+                                    <label class="col-sm-3 control-label no-padding-right">其他</label>
+
+                                    <div class="col-sm-9">
+                                        <input class="col-xs-1" type="text" id="omoney" placeholder="" name="omoney"
+                                               value="0" onblur="countmoney()"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="">
+                                    <label class="col-sm-3 control-label no-padding-right" style="font-size: large;color: red">总额</label>
+
+                                    <div class="col-sm-9">
+                                        <p style="font-size: large;color: red" id="allmoney"></p>
                                     </div>
                                 </div>
 
@@ -441,7 +510,7 @@
                                 <!--右-->
 
                                 <button class="btn btn-info" type="button" onclick="add()"
-                                        style="float: right;">添加</button>
+                                        >添加</button>
                                 <table class="table table-bordered table-striped" id="table" border="1">
                                     <tr>
                                         <td>姓名</td>
@@ -856,6 +925,25 @@
             }
         }
 
+    </script>
+
+    <script type="text/javascript">
+        function countmoney() {
+            var mmoney = parseFloat(document.getElementById("mmoney").value);
+            var hmoney = parseFloat(document.getElementById("hmoney").value);
+            var tmoney = parseFloat(document.getElementById("tmoney").value);
+            var pmoney = parseFloat(document.getElementById("pmoney").value);
+            var rmoney = parseFloat(document.getElementById("rmoney").value);
+            var cmoney = parseFloat(document.getElementById("cmoney").value);
+            var omoney = parseFloat(document.getElementById("omoney").value);
+            var fbmoney = parseInt(document.getElementById("fbmoney").value);
+            var tbmoney = parseInt(document.getElementById("tbmoney").value);
+            var tbp = parseInt(document.getElementById("tbp").value);
+            var fbp = parseInt(document.getElementById("fbp").value);
+            var allmoney = document.getElementById("allmoney");
+            var count = parseFloat(mmoney+hmoney+tmoney+pmoney+cmoney+rmoney+omoney+fbmoney*fbp*100+tbmoney*tbp*80);
+            allmoney.innerHTML = count;
+        }
     </script>
 
 </body>

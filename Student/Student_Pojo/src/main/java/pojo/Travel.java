@@ -12,11 +12,65 @@ public class Travel {
     private String people;
     private String personid;
     private String time;
-    private float hmoney;
-    private float mmoney;
-    private float tmoney;
+    private float hmoney;   //住宿费
+    private float mmoney;   //会议费
+    private float tmoney;   //交通费
+    private float rmoney;   //退票费
+    private float pmoney;   //保险费
+    private float cmoney;   //培训费
+    private float omoney;   //其他费用
+    private int fbmoney;  //伙食补助费
+    private int tbmoney;  //交通补助费
     private int status;
     private String method;
+
+    public float getOmoney() {
+        return omoney;
+    }
+
+    public void setOmoney(float omoney) {
+        this.omoney = omoney;
+    }
+
+    public float getRmoney() {
+        return rmoney;
+    }
+
+    public void setRmoney(float rmoney) {
+        this.rmoney = rmoney;
+    }
+
+    public float getPmoney() {
+        return pmoney;
+    }
+
+    public void setPmoney(float pmoney) {
+        this.pmoney = pmoney;
+    }
+
+    public float getCmoney() {
+        return cmoney;
+    }
+
+    public void setCmoney(float cmoney) {
+        this.cmoney = cmoney;
+    }
+
+    public int getFbmoney() {
+        return fbmoney;
+    }
+
+    public void setFbmoney(int fbmoney) {
+        this.fbmoney = fbmoney;
+    }
+
+    public int getTbmoney() {
+        return tbmoney;
+    }
+
+    public void setTbmoney(int tbmoney) {
+        this.tbmoney = tbmoney;
+    }
 
     public String getMethod() {
         return method;
@@ -159,10 +213,18 @@ public class Travel {
                 ", tel='" + tel + '\'' +
                 ", people='" + people + '\'' +
                 ", personid='" + personid + '\'' +
+                ", time='" + time + '\'' +
                 ", hmoney=" + hmoney +
                 ", mmoney=" + mmoney +
                 ", tmoney=" + tmoney +
+                ", rmoney=" + rmoney +
+                ", pmoney=" + pmoney +
+                ", cmoney=" + cmoney +
+                ", omoney=" + omoney +
+                ", fbmoney=" + fbmoney +
+                ", tbmoney=" + tbmoney +
                 ", status=" + status +
+                ", method='" + method + '\'' +
                 '}';
     }
 }

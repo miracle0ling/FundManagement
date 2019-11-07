@@ -33,6 +33,8 @@ public class ApplyController {
     PeopleService peopleService;
     @Autowired
     RentService rentService;
+    @Autowired
+    TypeService typeService;
 
 
     //    报销类别
@@ -114,18 +116,24 @@ public class ApplyController {
         return "redirect:/application";
     }
 
-    //    进入报销页面之前需要加载的内容
+    //    进入普通报销页面之前需要加载的内容
     @RequestMapping("/application")
     public String apply(Model mode, HttpSession session, String errormassage) {
         List<project> projects = projectService.getNI();
         List<Studio> studios = studioService.getNI();
+        List<Type> typeList = typeService.selectgroup();
+        for (Type i :
+                typeList) {
+            System.out.println(i);
+        }
         mode.addAttribute("project", projects);
+        mode.addAttribute("typeList", typeList);
         mode.addAttribute("studio", studios);
         mode.addAttribute("errormassage", errormassage);
         return "application";
     }
 
-    //    进入报销页面之前需要加载的内容
+    //    进入差旅报销页面之前需要加载的内容
     @RequestMapping("/travelapply")
     public String travelapply(Model mode, HttpSession session, String errormassage) {
         List<project> projects = projectService.getNI();
@@ -136,10 +144,17 @@ public class ApplyController {
         return "travel";
     }
 
+    //    进入借款报销页面之前需要加载的内容
     @RequestMapping("/rentapply")
     public String rentlapply(Model mode, HttpSession session, String errormassage) {
         List<project> projects = projectService.getNI();
         List<Studio> studios = studioService.getNI();
+        List<Type> typeList = typeService.select();
+        for (Type i :
+                typeList) {
+            System.out.println(i);
+        }
+        mode.addAttribute("typeList", typeList);
         mode.addAttribute("project", projects);
         mode.addAttribute("studio", studios);
         mode.addAttribute("errormassage", errormassage);
@@ -273,6 +288,14 @@ public class ApplyController {
         String hhmoney = request.getParameter("hmoney");
         String mmmoney = request.getParameter("mmoney");
         String ttmoney = request.getParameter("tmoney");
+        String trmoney = request.getParameter("rmoney");
+        String tpmoney = request.getParameter("pmoney");
+        String tcmoney = request.getParameter("cmoney");
+        String tfbmoney = request.getParameter("fbmoney");
+        String ttbmoney = request.getParameter("tbmoney");
+        String tomoney = request.getParameter("omoney");
+        String ttbp = request.getParameter("tbp");
+        String tfbp = request.getParameter("fbp");
         String method = request.getParameter("method");
 
         String[] pname = request.getParameterValues("pname");
@@ -324,9 +347,23 @@ public class ApplyController {
             float hmoney = Float.parseFloat(hhmoney);
             float mmoney = Float.parseFloat(mmmoney);
             float tmoney = Float.parseFloat(ttmoney);
+            float pmoney = Float.parseFloat(tpmoney);
+            float rmoney = Float.parseFloat(trmoney);
+            float cmoney = Float.parseFloat(tcmoney);
+            float omoney = Float.parseFloat(tomoney);
+            int tbp = Integer.parseInt(ttbp);
+            int fbp = Integer.parseInt(tfbp);
+            int tbmoney = Integer.parseInt(ttbmoney);
+            int fbmoney = Integer.parseInt(tfbmoney);
             travel.setHmoney(hmoney);
             travel.setMmoney(mmoney);
             travel.setTmoney(tmoney);
+            travel.setPmoney(pmoney);
+            travel.setCmoney(cmoney);
+            travel.setRmoney(rmoney);
+            travel.setOmoney(omoney);
+            travel.setTbmoney(tbmoney*tbp*80);
+            travel.setFbmoney(fbmoney*fbp*100);
 
             for (int i = 0; i < pname.length; i++) {
                 float money = Float.parseFloat(smoney[i]);
@@ -377,6 +414,7 @@ public class ApplyController {
         String province = request.getParameter("province");
         String city = request.getParameter("city");
         String method = request.getParameter("method");
+        String mission = request.getParameter("mission");
         try{
             float money = Float.parseFloat(request.getParameter("money"));
         }catch (NumberFormatException e){
@@ -423,6 +461,7 @@ public class ApplyController {
         rent.setStatus(status);
         rent.setAccount(account);
         rent.setMethod(method);
+        rent.setMission(mission);
 
 //        插入
         Date date = new Date();

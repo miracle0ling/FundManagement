@@ -16,6 +16,15 @@ public class Rent {
     private String time;
     private int status;
     private String method;
+    private String mission;
+
+    public String getMission() {
+        return mission;
+    }
+
+    public void setMission(String mission) {
+        this.mission = mission;
+    }
 
     public String getMethod() {
         return method;

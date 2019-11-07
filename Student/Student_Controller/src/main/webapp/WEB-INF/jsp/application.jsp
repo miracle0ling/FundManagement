@@ -320,19 +320,13 @@
                                             <div class="clearfix">
                                                 <select id="type" name="type" required onchange="SelectChange2()">
                                                     <option value="">请选择</option>
-                                                    <option value="办公费" class="ku">办公费</option>
-                                                    <option value="印刷费" class="ku">印刷费</option>
-                                                    <option value="专用材料费" class="ku">专用材料费</option>
-                                                    <option value="其他商品和服务支出" class="ku">其他商品和服务支出</option>
-                                                    <option value="专用设备购置" class="ku">专用设备购置</option>
-                                                    <option value="维修(护)费" class="ku">维修(护)费</option>
-                                                    <option value="差旅费" class="travel">差旅费</option>
-                                                    <option value="其他交通费用" class="travel">其他交通费用</option>
+                                                    <c:forEach items="${typeList}" var="l">
+                                                        ${l.ttype}
+                                                        <c:if test="${l.ttype=='普通报销'}">
+                                                            <option value="${l.project}">${l.project}</option>
+                                                        </c:if>
+                                                    </c:forEach>
                                                     <option value="(版面、专利)委托业务费" class="paper">(版面、专利)委托业务费</option>
-                                                    <option value="租凭费" class="none">租凭费</option>
-                                                    <option value="培训费" class="none">培训费</option>
-                                                    <option value="劳务费" class="none">劳务费</option>
-                                                    <option value="奖励金" class="none">奖励金</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -390,9 +384,9 @@
                                         >具体内容/任务/用处</label>
 
                                         <div class="col-sm-9">
-                                            <input class="col-xs-1" type="text"
+                                            <textarea rows="5" class="col-xs-5" type="text"
                                                    placeholder="" name="mission" value=""
-                                                    style="width: auto;" />
+                                                      style="width: auto;" ></textarea>
                                         </div>
                                     </div>
 
@@ -401,7 +395,7 @@
                                         >论文、专利名称</label>
 
                                         <div class="col-sm-9">
-                                            <input class="col-xs-1" type="text" id="aaaa"
+                                            <input class="col-xs-3" type="text" id="aaaa"
                                                    placeholder="" name="art" value=""
                                                     style="width: auto;" />
                                         </div>
@@ -412,7 +406,7 @@
                                         >作者</label>
 
                                         <div class="col-sm-9">
-                                            <input class="col-xs-1" type="text" id="bbbbb"
+                                            <input class="col-xs-3" type="text" id="bbbbb"
                                                    placeholder="" name="author" value=""
                                                     style="width: auto;" />
                                         </div>

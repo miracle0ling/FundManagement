@@ -4,4 +4,7 @@
     <select id="select" resultType="Type">
         select * from type
     </select>
+    <select id="selectgroup" resultType="Type">
+        select * from type GROUP BY project
+    </select>
 </mapper>
