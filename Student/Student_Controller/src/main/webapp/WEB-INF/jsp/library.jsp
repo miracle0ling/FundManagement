@@ -281,6 +281,7 @@
             </button>
         </form>
         <div>
+            <span style="font-size: x-large;color: blue;float: left;">总额：</span>
             <p style="font-size: x-large;color: blue" id="allmoney"></p>
         </div>
     </div>
@@ -829,11 +830,18 @@
 <script type="text/javascript">
     function countmoney() {
         var money = document.getElementsByName("money");
-        var tax = document.getElementById("tax");
+        var tax = document.getElementsByName("tax");
         var allmoney = document.getElementById("allmoney");
         var count = 0;
         for (var i = 0; i < money.length; i++) {
-            count+= parseFloat(money[i].value)+parseFloat(tax[i].value);
+            if(money[i].value!=null){
+                count+= parseFloat(money[i].value);
+            }
+        }
+        for (var i = 0; i < tax.length; i++) {
+            if(tax[i].value!=null){
+                count+= parseFloat(tax[i].value);
+            }
         }
         allmoney.innerHTML = count;
     }
