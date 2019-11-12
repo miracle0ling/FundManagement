@@ -430,7 +430,81 @@
                             </c:forEach>
                         </form>
                         </tbody>
+                    </table>
 
+                </div>
+
+                <p style="font-size: x-small">借款报销</p>
+                <div class="table-responsive">
+                    <table id="dynamic-table2" class="table table-striped table-bordered table-hover text-nowrap">
+                        <thead>
+                        <tr>
+                            <th>
+                                <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i> 报销时间
+                            </th>
+                            <th>借款事由</th>
+                            <th>借款用途</th>
+                            <th>报销人</th>
+                            <th>总额</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <form class="hidden-sm hidden-xs action-buttons">
+                            <c:forEach items="${rent}" var="r">
+                                <tr>
+                                    <td>${r.time}</td>
+                                    <td>${r.mission}</td>
+                                    <td>${r.type}</td>
+                                    <td>${r.people}</td>
+                                    <td>${r.money}</td>
+                                    <td>
+                                        <c:if test="${r.status == 0}">
+                                            <span class="label label-sm label-warning">申请中</span>
+                                        </c:if>
+                                        <c:if test="${r.status == 1}">
+                                            <span class="label label-sm label-success arrowed">同意</span>
+                                        </c:if>
+                                        <c:if test="${r.status == 2}">
+                                                    <span
+                                                            class="label label-sm label-inverse arrowed-in-right">拒绝</span>
+                                        </c:if>
+                                        <c:if test="${r.status== 3}">
+                                            <span class="label label-sm label-danger arrowed-in">撤销</span>
+                                        </c:if>
+                                        <c:if test="${r.status == 4}">
+                                            <span class="label label-sm label-info arrowed-in-right">已使用</span>
+                                        </c:if>
+                                    </td>
+                                    <td>
+                                        <c:if test="${r.status!=4}">
+                                            <c:if test="${r.type=='出差旅费'||r.type=='住宿费'}">
+                                                <a type="button"
+                                                   class="btn btn-minier btn-white btn-warning btn-bold"
+                                                   href="./travelapply?id=${r.pid}">
+                                                    <i class="ace-icon fa fa-trash-o bigger-100 orange"></i>
+                                                    还发票
+                                                </a>
+                                            </c:if>
+                                            <c:if test="${r.type!='出差旅费'&&r.type!='住宿费'}">
+                                                <a type="button"
+                                                   class="btn btn-minier btn-white btn-warning btn-bold"
+                                                   href="./application?id=${r.pid}">
+                                                    <i class="ace-icon fa fa-trash-o bigger-100 orange"></i>
+                                                    还发票
+                                                </a>
+                                            </c:if>
+
+                                        </c:if>
+
+
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </form>
+                        </tbody>
                     </table>
 
                 </div>

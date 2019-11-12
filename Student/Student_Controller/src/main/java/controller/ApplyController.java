@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -62,6 +64,22 @@ public class ApplyController {
             String[] smoney = request.getParameterValues("money");
             String[] stax = request.getParameterValues("tax");
             String[] squantity = request.getParameterValues("quantity");
+            List<Librarylist> temp = new ArrayList<>();
+            for (int i = 0; i < tname.length; i++) {
+                Librarylist librarylist = new Librarylist();
+                float money = Float.parseFloat(smoney[i]);
+                float tax = Float.parseFloat(stax[i]);
+                int quantity = Integer.parseInt(squantity[i]);
+                librarylist.setDw(dw[i]);
+                librarylist.setId(i + 1);
+                librarylist.setMoney(money);
+                librarylist.setQuantity(quantity);
+                librarylist.setTax(tax);
+                librarylist.setTname(tname[i]);
+                librarylist.setRid(pid);
+                temp.add(librarylist);
+            }
+            model.addAttribute("list",temp);
             List<Librarylist> librarylists = new ArrayList<>();
             for (int i = 0; i < tname.length; i++) {
                 Librarylist librarylist = new Librarylist();
@@ -84,12 +102,15 @@ public class ApplyController {
                 librarylists.add(librarylist);
             }
             model.addAttribute("Librarylists", librarylists);
-            float count = 0;
-            for (Librarylist i : librarylists
-            ) {
-                count += i.getMoney() + i.getTax();
+            DecimalFormat decimalFormat = new DecimalFormat("#.00");
+            BigDecimal count = new BigDecimal(0);
+            for (Librarylist i :
+                    librarylists) {
+                BigDecimal money = new BigDecimal(decimalFormat.format(i.getMoney()));
+                BigDecimal tax = new BigDecimal(decimalFormat.format(i.getTax()));
+                count = count.add(tax.add(money));
             }
-            if (Math.abs(count - bill.getAmoney()) < 0.001) {
+            if (count.compareTo(new BigDecimal(bill.getAmoney()))==0) {
 
                 for (Librarylist i : librarylists
                 ) {
@@ -122,10 +143,7 @@ public class ApplyController {
         List<project> projects = projectService.getNI();
         List<Studio> studios = studioService.getNI();
         List<Type> typeList = typeService.selectgroup();
-        for (Type i :
-                typeList) {
-            System.out.println(i);
-        }
+
         mode.addAttribute("project", projects);
         mode.addAttribute("typeList", typeList);
         mode.addAttribute("studio", studios);
@@ -150,10 +168,7 @@ public class ApplyController {
         List<project> projects = projectService.getNI();
         List<Studio> studios = studioService.getNI();
         List<Type> typeList = typeService.select();
-        for (Type i :
-                typeList) {
-            System.out.println(i);
-        }
+
         mode.addAttribute("typeList", typeList);
         mode.addAttribute("project", projects);
         mode.addAttribute("studio", studios);
@@ -190,7 +205,6 @@ public class ApplyController {
         bill.setPeople(people);
         bill.setTel(tel);
         bill.setPersonid((String) session.getAttribute("perid"));
-        bill.setBaoxiao("   ");//暂时先这样
         if (!proid.equals("") || !sid.equals("")) {
             if (proid.equals("")) {
                 try {
@@ -232,40 +246,14 @@ public class ApplyController {
             }
             bill.setArt(art);
             bill.setAuthor(author);
-            Date date = new Date();
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            bill.setTime(dateFormat.format(date).toString());
-            applyService.inserttype2(bill);
-            model.addAttribute("errormassage", "提交成功");
-            return "redirect:/application";
         } else {
+
             if (mission.equals("")) {
                 model.addAttribute("errormassage", "请填写具体内容/任务/用处");
                 return "redirect:/application";
             }
             bill.setMission(mission);
         }
-//        暂时不需要
-//        if (baoxiao.equals("")){
-//            model.addAttribute("errormassage","请选择有无报销凭证");
-//            return "redirect:/application";
-//        } else {
-//            if (baoxiao.equals("有")){
-//                bill.setBaoxiao(baoxiao);
-//
-//                session.setAttribute(bill.getRid(), bill);
-//                model.addAttribute("pid",bill.getRid());
-//                return "library";
-//            }
-//            if (baoxiao.equals("无")||baoxiao.equals("欠")){
-//                bill.setBaoxiao(baoxiao);
-//                Date date = new Date();
-//                SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//                bill.setTime(dateFormat.format(date).toString());
-//                applyService.inserttype2(bill);
-//                model.addAttribute("errormassage","提交成功");
-//            }
-//        }
         session.setAttribute(bill.getRid(), bill);
         model.addAttribute("pid", bill.getRid());
         return "library";
@@ -415,15 +403,17 @@ public class ApplyController {
         String city = request.getParameter("city");
         String method = request.getParameter("method");
         String mission = request.getParameter("mission");
+        Rent rent = new Rent();
         try{
             float money = Float.parseFloat(request.getParameter("money"));
+            rent.setMoney(money);
         }catch (NumberFormatException e){
             model.addAttribute("errormassage", "请输入正确格式");
             return "redirect:/rentapply";
         }
         int status = 0;
 
-        Rent rent = new Rent();
+
         rent.setPersonid((String) session.getAttribute("perid"));
         if (!proid.equals("") || !sid.equals("")) {
             if (proid.equals("")) {
@@ -445,6 +435,7 @@ public class ApplyController {
             model.addAttribute("errormassage", "请选择对应项目/工作室");
             return "redirect:/rentapply";
         }
+        
 
         if (type.equals("")) {
             model.addAttribute("errormassage", "请选择报销类别");

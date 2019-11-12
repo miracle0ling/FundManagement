@@ -10,6 +10,8 @@ import service.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.List;
 
 @Controller
@@ -27,11 +29,15 @@ public class InfoController {
     TravelService travelService;
     @Autowired
     PeopleService peopleService;
+    @Autowired
+    RentService rentService;
 
     @RequestMapping("/personInfo")
     public String personInfo(Model model,HttpSession session){
         List<Bill> bills = applyService.sbyname(String.valueOf(session.getAttribute("perid")));
         List<Travel> travels = travelService.sbyname(String.valueOf(session.getAttribute("perid")));
+        List<Rent> rents = rentService.sbyname(String.valueOf(session.getAttribute("perid")));
+        model.addAttribute("rent",rents);
         model.addAttribute("bills",bills);
         model.addAttribute("travels",travels);
         return "personInfo";
@@ -40,10 +46,14 @@ public class InfoController {
     @RequestMapping("/selectku")
     public String selectku(String id,Model model){
         List<Librarylist> librarylists = libraryService.selectbyrid(id);
-        float count  = 0;
+
+        DecimalFormat decimalFormat = new DecimalFormat("#.00");
+        BigDecimal count = new BigDecimal(0);
         for (Librarylist i :
                 librarylists) {
-            count+=i.getMoney()+i.getTax();
+            BigDecimal money = new BigDecimal(decimalFormat.format(i.getMoney()));
+            BigDecimal tax = new BigDecimal(decimalFormat.format(i.getTax()));
+            count = count.add(tax.add(money));
         }
         model.addAttribute("library",librarylists);
         model.addAttribute("count",count);
@@ -53,10 +63,12 @@ public class InfoController {
     @RequestMapping("/selectpeople")
     public String selectpeople(String id,Model model){
         List<People> peopleList = peopleService.selectbyrid(id);
-        float count  = 0;
+        DecimalFormat decimalFormat = new DecimalFormat("#.00");
+        BigDecimal count = new BigDecimal(0);
         for (People i :
                 peopleList) {
-            count+=i.getPrice();
+            BigDecimal price = new BigDecimal(decimalFormat.format(i.getPrice()));
+            count = count.add(price);
         }
         model.addAttribute("peopleList",peopleList);
         model.addAttribute("count",count);

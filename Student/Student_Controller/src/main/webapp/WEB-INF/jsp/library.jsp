@@ -124,161 +124,167 @@
     </script>
 
     <%--<div id="sidebar" class="sidebar                  responsive                    ace-save-state">--%>
-        <%--<script type="text/javascript">--%>
-            <%--try {--%>
-                <%--ace.settings.loadState('sidebar')--%>
-            <%--} catch (e) {--%>
-            <%--}--%>
-        <%--</script>--%>
+    <%--<script type="text/javascript">--%>
+    <%--try {--%>
+    <%--ace.settings.loadState('sidebar')--%>
+    <%--} catch (e) {--%>
+    <%--}--%>
+    <%--</script>--%>
 
 
-        <%--<ul class="nav nav-list">--%>
-            <%--<li class="active">--%>
-                <%--<a href="./notice">--%>
-                    <%--<i class="menu-icon fa fa-newspaper-o"></i>--%>
-                    <%--<span class="menu-text"> 通知公告 </span>--%>
-                <%--</a>--%>
+    <%--<ul class="nav nav-list">--%>
+    <%--<li class="active">--%>
+    <%--<a href="./notice">--%>
+    <%--<i class="menu-icon fa fa-newspaper-o"></i>--%>
+    <%--<span class="menu-text"> 通知公告 </span>--%>
+    <%--</a>--%>
 
-                <%--<b class="arrow"></b>--%>
-            <%--</li>--%>
+    <%--<b class="arrow"></b>--%>
+    <%--</li>--%>
 
-            <%--<li class="">--%>
-                <%--<a href="#" class="dropdown-toggle">--%>
-                    <%--<i class="menu-icon fa fa-list"></i>--%>
-                    <%--<span class="menu-text">--%>
-                            <%--信息查询--%>
-                        <%--</span>--%>
+    <%--<li class="">--%>
+    <%--<a href="#" class="dropdown-toggle">--%>
+    <%--<i class="menu-icon fa fa-list"></i>--%>
+    <%--<span class="menu-text">--%>
+    <%--信息查询--%>
+    <%--</span>--%>
 
-                    <%--<b class="arrow fa fa-angle-down"></b>--%>
-                <%--</a>--%>
+    <%--<b class="arrow fa fa-angle-down"></b>--%>
+    <%--</a>--%>
 
-                <%--<b class="arrow"></b>--%>
+    <%--<b class="arrow"></b>--%>
 
-                <%--<ul class="submenu">--%>
+    <%--<ul class="submenu">--%>
 
-                    <%--<li class="">--%>
-                        <%--<a href="./projectInfo">--%>
-                            <%--<i class="menu-icon fa fa-caret-right"></i>--%>
-                            <%--大创项目--%>
-                        <%--</a>--%>
+    <%--<li class="">--%>
+    <%--<a href="./projectInfo">--%>
+    <%--<i class="menu-icon fa fa-caret-right"></i>--%>
+    <%--大创项目--%>
+    <%--</a>--%>
 
-                        <%--<b class="arrow"></b>--%>
-                    <%--</li>--%>
+    <%--<b class="arrow"></b>--%>
+    <%--</li>--%>
 
-                    <%--<li class="">--%>
-                        <%--<a href="./studioInfo">--%>
-                            <%--<i class="menu-icon fa fa-caret-right"></i>--%>
-                            <%--工作室--%>
-                        <%--</a>--%>
+    <%--<li class="">--%>
+    <%--<a href="./studioInfo">--%>
+    <%--<i class="menu-icon fa fa-caret-right"></i>--%>
+    <%--工作室--%>
+    <%--</a>--%>
 
-                        <%--<b class="arrow"></b>--%>
-                    <%--</li>--%>
+    <%--<b class="arrow"></b>--%>
+    <%--</li>--%>
 
-                    <%--<li class="">--%>
-                        <%--<a href="./userInfo">--%>
-                            <%--<i class="menu-icon fa fa-caret-right"></i>--%>
-                            <%--竞赛--%>
-                        <%--</a>--%>
+    <%--<li class="">--%>
+    <%--<a href="./userInfo">--%>
+    <%--<i class="menu-icon fa fa-caret-right"></i>--%>
+    <%--竞赛--%>
+    <%--</a>--%>
 
-                        <%--<b class="arrow"></b>--%>
-                    <%--</li>--%>
+    <%--<b class="arrow"></b>--%>
+    <%--</li>--%>
 
-                    <%--<li class="">--%>
-                        <%--<a href="./userInfo">--%>
-                            <%--<i class="menu-icon fa fa-caret-right"></i>--%>
-                            <%--其他--%>
-                        <%--</a>--%>
+    <%--<li class="">--%>
+    <%--<a href="./userInfo">--%>
+    <%--<i class="menu-icon fa fa-caret-right"></i>--%>
+    <%--其他--%>
+    <%--</a>--%>
 
-                        <%--<b class="arrow"></b>--%>
-                    <%--</li>--%>
-                <%--</ul>--%>
-            <%--</li>--%>
+    <%--<b class="arrow"></b>--%>
+    <%--</li>--%>
+    <%--</ul>--%>
+    <%--</li>--%>
 
-            <%--<li class="">--%>
-                <%--<a href="#" class="dropdown-toggle">--%>
-                    <%--<i class="menu-icon fa fa-pencil-square-o"></i>--%>
-                    <%--<span class="menu-text"> 新建报销 </span>--%>
+    <%--<li class="">--%>
+    <%--<a href="#" class="dropdown-toggle">--%>
+    <%--<i class="menu-icon fa fa-pencil-square-o"></i>--%>
+    <%--<span class="menu-text"> 新建报销 </span>--%>
 
-                    <%--<b class="arrow fa fa-angle-down"></b>--%>
-                <%--</a>--%>
+    <%--<b class="arrow fa fa-angle-down"></b>--%>
+    <%--</a>--%>
 
-                <%--<b class="arrow"></b>--%>
+    <%--<b class="arrow"></b>--%>
 
-                <%--<ul class="submenu">--%>
-                    <%--<li class="">--%>
-                        <%--<a href="./application">--%>
-                            <%--<i class="menu-icon fa fa-caret-right"></i>--%>
-                            <%--报销表单--%>
-                        <%--</a>--%>
+    <%--<ul class="submenu">--%>
+    <%--<li class="">--%>
+    <%--<a href="./application">--%>
+    <%--<i class="menu-icon fa fa-caret-right"></i>--%>
+    <%--报销表单--%>
+    <%--</a>--%>
 
-                        <%--<b class="arrow"></b>--%>
-                    <%--</li>--%>
+    <%--<b class="arrow"></b>--%>
+    <%--</li>--%>
 
-                    <%--<li class="">--%>
-                        <%--<a href="./ku">--%>
-                            <%--<i class="menu-icon fa fa-caret-right"></i>--%>
-                            <%--出入库表单--%>
-                        <%--</a>--%>
+    <%--<li class="">--%>
+    <%--<a href="./ku">--%>
+    <%--<i class="menu-icon fa fa-caret-right"></i>--%>
+    <%--出入库表单--%>
+    <%--</a>--%>
 
-                        <%--<b class="arrow"></b>--%>
-                    <%--</li>--%>
-                <%--</ul>--%>
-            <%--</li>--%>
-        <%--</ul>--%>
+    <%--<b class="arrow"></b>--%>
+    <%--</li>--%>
+    <%--</ul>--%>
+    <%--</li>--%>
+    <%--</ul>--%>
 
-        <%--<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">--%>
-            <%--<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state"--%>
-               <%--data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>--%>
-        <%--</div>--%>
-    </div>
+    <%--<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">--%>
+    <%--<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state"--%>
+    <%--data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>--%>
+    <%--</div>--%>
+</div>
 
-    <div class="main-content">
-        <div class="main-content-inner">
-            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
-                <ul class="breadcrumb">
-                    <li>
-                        <i class="ace-icon fa fa-home home-icon"></i>
-                        <a href="./notice">首页</a>
-                    </li>
+<div class="main-content">
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="./notice">首页</a>
+                </li>
 
-                    <li class="active">出入库表单</li>
-                </ul><!-- /.breadcrumb -->
-
-            </div>
-            <p style="margin-top: 50px"></p>
-            <h1 align="center">出入库单</h1>
-            <p style="height: 30px;font-size: x-large;color: red">${errormassage}</p>
-            请点击添加按钮添加具体报销物品信息
-            <button class="btn btn-info" onclick="add()">添加</button>
-            <form action="applyku?pid=${pid}" method="post">
-                <table class="table table-bordered table-striped" id="table" border="1">
-                    <tr >
-                        <td>货物或应税劳务、服务名称</td>
-                        <td>单位</td>
-                        <td>金额</td>
-                        <td>税额</td>
-                        <td>数量</td>
-                        <td>删除</td>
-                    </tr>
-                    <%--<c:forEach items="${librarylists}" var="l">--%>
-                        <%--<tr >--%>
-                            <%--<td><input name="">${l.}</td>--%>
-                            <%--<td>单位</td>--%>
-                            <%--<td>金额</td>--%>
-                            <%--<td>税额</td>--%>
-                            <%--<td>数量</td>--%>
-                            <%--<td>删除</td>--%>
-                        <%--</tr>--%>
-                    <%--</c:forEach>--%>
-                </table>
-                <button class="btn btn-info" type="submit" style="float: right;">
-                    <i class="ace-icon fa fa-check bigger-110"></i>
-                    保存
-                </button>
-            </form>
+                <li class="active">出入库表单</li>
+            </ul><!-- /.breadcrumb -->
 
         </div>
+        <p style="margin-top: 50px"></p>
+        <h1 align="center">出入库单</h1>
+        <p style="height: 30px;font-size: x-large;color: red">${errormassage}</p>
+        请点击添加按钮添加具体报销物品信息
+        <button class="btn btn-info" onclick="add()">添加</button>
+        <form action="applyku?pid=${pid}" method="post">
+            <table class="table table-bordered table-striped" id="table" border="1">
+                <tr>
+                    <td>货物或应税劳务、服务名称</td>
+                    <td>单位</td>
+                    <td>数量</td>
+                    <td>金额</td>
+                    <td>税额</td>
+                    <td>删除</td>
+                </tr>
+                <c:forEach items="${list}" var="l">
+                    <tr>
+                        <td><input name="lname" value="${l.tname}"></td>
+                        <td><input name="lwork" value="${l.dw}"></td>
+                        <td><input name="quantity" value="${l.quantity}"></td>
+                        <td><input name="money" value="${l.money}"></td>
+                        <td><input name="tax" value="${l.tax}"></td>
+                        <td>
+                            <div class="col-xs-12">
+                                <a onclick="del(this)"><span>删除</span></a>
+                            </div>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+            <button class="btn btn-info" type="submit" style="float: right;">
+                <i class="ace-icon fa fa-check bigger-110"></i>
+                保存
+            </button>
+        </form>
+        <div>
+            <p style="font-size: x-large;color: blue" id="allmoney"></p>
+        </div>
     </div>
+</div>
 
 </div>
 </div><!-- /.main-content -->
@@ -802,10 +808,10 @@
         var tab = document.getElementById("table");
         tr.innerHTML =
             "                        <td><input name=\"lname\" required></td>\n" +
-            "                        <td><input name=\"lwork\" placeholder=\"公司或组织名称\"></td>\n" +
-            "                        <td><input name=\"money\" required placeholder=\"税前金额（发票单上对应金额）\"></td>\n" +
-            "                        <td><input name=\"tax\" required></td>\n" +
+            "                        <td><input name=\"lwork\" ></td>\n" +
             "                        <td><input name=\"quantity\" required></td>\n" +
+            "                        <td><input name=\"money\" required placeholder=\"税前金额（发票单上对应金额）\" onblur='countmoney()'></td>\n" +
+            "                        <td><input name=\"tax\" required onblur='countmoney()'></td>\n" +
             "                        <td>\n" +
             "                            <div class=\"col-xs-12\">\n" +
             "                                <a onclick=\"del(this)\"><span>删除</span></a>\n" +
@@ -818,6 +824,18 @@
     function del(obj) {
         var tr = obj.parentNode.parentNode.parentNode;
         tr.parentNode.removeChild(tr);
+    }
+</script>
+<script type="text/javascript">
+    function countmoney() {
+        var money = document.getElementsByName("money");
+        var tax = document.getElementById("tax");
+        var allmoney = document.getElementById("allmoney");
+        var count = 0;
+        for (var i = 0; i < money.length; i++) {
+            count+= parseFloat(money[i].value)+parseFloat(tax[i].value);
+        }
+        allmoney.innerHTML = count;
     }
 </script>
 </body>

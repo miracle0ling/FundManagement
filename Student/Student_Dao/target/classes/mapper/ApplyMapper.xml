@@ -8,7 +8,7 @@
         insert into bill (pid,leibie,type,people,tel,amoney,method,mission,rid,time) values (#{pid},#{leibie},#{type},#{people},#{tel},#{amoney},#{method},#{mission},#{rid},#{time})
     </insert>
     <insert id="type2" parameterType="Bill">
-        insert into bill  (pid,leibie,type,people,tel,amoney,method,art,author,mission,rid,baoxiao,time,personid) values (#{pid},#{leibie},#{type},#{people},#{tel},#{amoney},#{method},#{art},#{author},#{mission},#{rid},#{baoxiao},#{time},#{personid})
+        insert into bill  (pid,leibie,type,people,tel,amoney,method,art,author,mission,rid,time,personid) values (#{pid},#{leibie},#{type},#{people},#{tel},#{amoney},#{method},#{art},#{author},#{mission},#{rid},#{time},#{personid})
     </insert>
     <select id="sbyid" parameterType="String" resultType="Bill">
         select * from bill where pid = #{pid}
