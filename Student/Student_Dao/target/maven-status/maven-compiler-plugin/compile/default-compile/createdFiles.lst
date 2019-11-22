@@ -1,0 +1,12 @@
+mapper/UserMapper.class
+mapper/registryMapper.class
+mapper/StudioMapper.class
+mapper/TypeMapper.class
+mapper/LibraryMapper.class
+mapper/studentMapper.class
+mapper/TeacherMapper.class
+mapper/projectInfo.class
+mapper/RentMapper.class
+mapper/ApplyMapper.class
+mapper/TravelMapper.class
+mapper/PeopleMapper.class

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.studentMapper">
+    <select id="selectUser" parameterType="String" resultType="Student">
+    	select * from student where snum=#{snum}
+    </select>
+    <select id="login" parameterType="String" resultType="String">
+        select spwd from student where snum=#{snum}
+    </select>
+    <update id="setpassword" parameterType="Student" >
+        update student set spwd=#{spwd},sstatus=1,ifpri=#{ifpri} where snum=#{snum}
+    </update>
+ </mapper>
+  

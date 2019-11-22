@@ -110,7 +110,7 @@ public class ApplyController {
                 BigDecimal tax = new BigDecimal(decimalFormat.format(i.getTax()));
                 count = count.add(tax.add(money));
             }
-            if (count.compareTo(new BigDecimal(bill.getAmoney()))==0) {
+            if (count.compareTo(new BigDecimal(decimalFormat.format(bill.getAmoney())))==0) {
 
                 for (Librarylist i : librarylists
                 ) {

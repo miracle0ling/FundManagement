@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.PeopleMapper">
+    <select id="selectall" resultType="People">
+        select * from people
+    </select>
+    <insert id="insert" parameterType="People">
+        insert into people (tid,pname,transport,price)
+        values
+        (#{tid},#{pname},#{transport},#{price})
+    </insert>
+    <select id="selectbyrid" resultType="People" parameterType="String">
+        select * from people where tid=#{tid}
+    </select>
+</mapper>
